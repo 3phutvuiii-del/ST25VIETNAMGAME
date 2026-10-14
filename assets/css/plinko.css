@@ -63,3 +63,10 @@
   .plinko-controls input,.plinko-controls select,.plinko-shortcuts button{min-height:44px}
 }
 @media(prefers-reduced-motion:reduce){.plinko-page *{animation:none!important;transition:none!important}.plinko-slots button:hover{transform:none}}
+
+/* Keep the primary action above the board on narrow screens. */
+@media(max-width:650px){
+  .portal-plinko .plinko-arena{order:0;border-top:1px solid #44314f}
+  .portal-plinko .plinko-controls{border-top:0}
+  .portal-plinko #plinko-play{grid-row:1;grid-column:1/-1;margin-top:0;min-height:48px}
+}
