@@ -1064,45 +1064,5 @@ async function generateLiveCombatEvents() {
 }
 
 
-// =======================================================
-// 🎰 SÒNG BẠC ST25 VIETNAM: TÀI XỈU & BẦU CUA DINO
-// Tỉ lệ thắng người chơi: 30% (Nhà cái thắng 70% để thu hồi Lúa)
-// Đồng bộ trực tiếp Lúa vào IslePilot Cloud
-// =======================================================
-
-const CASINO_PLAYER_WIN_RATE = 0.30;
- // 30% Win rate for player, 70% for house
-const CASINO_BAO_WIN_RATE = 0.03;
-    // 3% Tỉ lệ nổ Bão (1 ăn 10, hạ tỉ lệ nổ bão tránh cày Lúa)
-
-function getCasinoData() {
-  const data = getPortalData();
-  if (!data.casinoStats) {
-    data.casinoStats = {
-      totalTreasury: 18450,
-      taiXiuHistory: [
-        { dice: [4, 5, 6], sum: 15, result: 'tai' },
-        { dice: [2, 3, 4], sum: 9, result: 'xiu' },
-        { dice: [5, 6, 2], sum: 13, result: 'tai' },
-        { dice: [1, 2, 4], sum: 7, result: 'xiu' },
-        { dice: [6, 4, 3], sum: 13, result: 'tai' },
-        { dice: [3, 3, 3], sum: 9, result: 'bao' },
-        { dice: [2, 5, 5], sum: 12, result: 'tai' },
-        { dice: [1, 3, 2], sum: 6, result: 'xiu' }
-      ],
-      bauCuaHistory: [
-        { dice: ['rex', 'cua', 'ga'] },
-        { dice: ['trike', 'trike', 'deino'] },
-        { dice: ['ech', 'rex', 'cua'] }
-      ],
-      raceHistory: [
-        { winnerId: 'galli', winnerName: 'Gallimimus (Gà Gió Lốc)', time: Date.now() - 360000 },
-        { winnerId: 'carno', winnerName: 'Carnotaurus (Tên Lửa Đỏ)', time: Date.now() - 180000 }
-      ]
-    };
-    savePortalData(data);
-  }
-  return data;
-}
-return {fs, path, Auth, Core, getConfig, saveConfig, getPortalData, savePortalData, callIslePilot, clearPlayerCache, apiCache, playerActionLocks, acquirePlayerLock, releasePlayerLock, posToLatLng, parseCookies, getRequestSteamId, getAdminSteamId, normalizeStatPct, linkPlayerBySteamId, getQuestPeriodKey, isQuestCompleted, isQuestClaimedInPeriod, SUPER_ADMINS, isUserAdmin, TRADE_TIMEOUT_MS, cleanExpiredTrades, startMaintenance, getPlayerGarageStatus, formatGarageError, ROLE_NAME_MAP, getAllAssignedUsers, addDinoToGarage, getLivePlayerBalance, modifyLivePlayerBalance, CARCASS_TYPES, srgbByteToLinear, hexToLinear, GACHA_HALLOWEEN_FALLBACK, getLiveIslePilotCrates, getRealServerPlayers, ensureCombatLogs, combatState, generateLiveCombatEvents, CASINO_PLAYER_WIN_RATE, CASINO_BAO_WIN_RATE, getCasinoData};
+return {fs, path, Auth, Core, getConfig, saveConfig, getPortalData, savePortalData, callIslePilot, clearPlayerCache, apiCache, playerActionLocks, acquirePlayerLock, releasePlayerLock, posToLatLng, parseCookies, getRequestSteamId, getAdminSteamId, normalizeStatPct, linkPlayerBySteamId, getQuestPeriodKey, isQuestCompleted, isQuestClaimedInPeriod, SUPER_ADMINS, isUserAdmin, TRADE_TIMEOUT_MS, cleanExpiredTrades, startMaintenance, getPlayerGarageStatus, formatGarageError, ROLE_NAME_MAP, getAllAssignedUsers, addDinoToGarage, getLivePlayerBalance, modifyLivePlayerBalance, CARCASS_TYPES, srgbByteToLinear, hexToLinear, GACHA_HALLOWEEN_FALLBACK, getLiveIslePilotCrates, getRealServerPlayers, ensureCombatLogs, combatState, generateLiveCombatEvents};
 };

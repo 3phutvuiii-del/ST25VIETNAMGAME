@@ -297,11 +297,7 @@ const App = {
             🎁 Mở Hòm May Mắn
           </a>
           <a href="plinko.html" class="nav-dropdown-item ${currentFile === 'plinko.html' ? 'active' : ''}">✦ Plinko ST25</a>
-          <!-- [TẮT TẠM THỜI] Bỏ comment dòng dưới khi muốn bật lại Sòng Bạc:
-          <a href="song-bac.html" class="nav-dropdown-item ${currentFile === 'song-bac.html' ? 'active' : ''}">
-            🎲 Sòng Bạc ST25
-          </a>
-          -->
+          
         </div>
       </li>
 
@@ -541,7 +537,7 @@ const App = {
         <a href="giao-dich.html" class="nav-dropdown-item">⚖️ Chợ Giao Dịch P2P</a>
         <a href="hom-qua.html" class="nav-dropdown-item">🎁 Mở Hòm May Mắn</a>
         <a href="plinko.html" class="nav-dropdown-item">✦ Plinko ST25</a>
-        <!-- [TẮT TẠM THỜI] Bỏ comment dòng dưới khi muốn bật lại: <a href="song-bac.html" class="nav-dropdown-item">🎲 Sòng Bạc ST25</a> -->
+        
       </div>
 
       <div>

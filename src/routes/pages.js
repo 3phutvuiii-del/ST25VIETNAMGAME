@@ -14,7 +14,6 @@ module.exports = function registerPages(app, {getConfig}) {
     const page = req.params.page || 'index.html';
     if (!/^[a-zA-Z0-9_-]+\.html$/.test(page)) return next();
     if (!fs.existsSync(path.join(Core.pagesDir, page))) return next();
-    if (page === 'song-bac.html' && !getConfig().casino?.enabled) return res.redirect('/');
     // Resolve relative links from the canonical root URL.
     if (req.path.startsWith('/pages/')) return res.redirect(308, '/' + page);
     try { res.type('html').send(renderPage(page)); } catch (error) { next(error); }

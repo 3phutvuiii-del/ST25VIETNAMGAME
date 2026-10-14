@@ -17,7 +17,5 @@ module.exports = (app, context) => {
   require('../controllers/skin')(app, context);
   require('../controllers/crates')(app, context);
   require('../controllers/leaderboard')(app, context);
-  require('../controllers/casino')(app, context);
   require('../controllers/plinko')(app, context);
-  require('../controllers/casino-wallet')(app, context);
 };

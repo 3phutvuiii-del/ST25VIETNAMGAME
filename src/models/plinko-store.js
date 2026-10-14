@@ -23,11 +23,7 @@ async function withPlayer(steamId,task){
 }
 const get=async(client,id,sid)=>(await client.query('SELECT * FROM st25_plinko_games WHERE id=$1 AND steam_id=$2',[id,sid])).rows[0];
 const history=async sid=>(await(await database()).query("SELECT * FROM st25_plinko_games WHERE steam_id=$1 AND status!='prepared' ORDER BY created_at DESC LIMIT 30",[sid])).rows;
-const unresolved=async(client,sid)=>{
-  if((await client.query("SELECT id FROM st25_plinko_games WHERE steam_id=$1 AND status IN ('debit_pending','credit_pending','review') LIMIT 1",[sid])).rows.length)return true;
-  const exists=(await client.query("SELECT to_regclass('st25_casino_rounds') AS name")).rows[0]?.name;
-  return !!exists&&(await client.query("SELECT id FROM st25_casino_rounds WHERE steam_id=$1 AND status!='settled' LIMIT 1",[sid])).rows.length>0;
-};
+const unresolved=async(client,sid)=>(await client.query("SELECT id FROM st25_plinko_games WHERE steam_id=$1 AND status IN ('debit_pending','credit_pending','review') LIMIT 1",[sid])).rows.length>0;
 async function prepare(client,sid){
   const existing=(await client.query("SELECT * FROM st25_plinko_games WHERE steam_id=$1 AND status='prepared' ORDER BY created_at DESC LIMIT 1",[sid])).rows[0];if(existing)return existing;
   return(await client.query("INSERT INTO st25_plinko_games(id,steam_id,seed,status,created_at) VALUES($1,$2,$3,'prepared',$4) RETURNING *",[crypto.randomUUID(),sid,crypto.randomBytes(32).toString('hex'),Date.now()])).rows[0];
